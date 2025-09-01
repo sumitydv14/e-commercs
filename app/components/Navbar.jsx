@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
   return (
     <nav className='bg-white shadow-md w-full'>
         <div className='max-w-[1400px] mx-auto py-4 flex justify-between items-center'>
-        <span className='text-xl font-bold text-gray-800'>YOUR LOGO</span>
+        <Link href="/" className='text-xl font-bold text-gray-800'>YOUR LOGO</Link>
         <div className='flex items-center space-x-2 cursor-pointer'>
                       <svg
             xmlns="http://www.w3.org/2000/svg"

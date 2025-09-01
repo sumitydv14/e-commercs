@@ -4,15 +4,15 @@ import { fetchProduct } from '../../lib/api'
 import {Product} from '../model/product.model'
 
 type ProductPageParams = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 
 
 export async function generateMetadata({params}:ProductPageParams) {
-    const { id } = params;
+    const { id } = await params;
     const data = await fetchProduct(Number(id));
     return {
       title: `Dev Product | ${data.title}`
@@ -20,7 +20,7 @@ export async function generateMetadata({params}:ProductPageParams) {
 }
 
 export default async function ProductDetails({params}:ProductPageParams) {
-    const { id } = params;
+    const { id } = await params;
     const data = await fetchProduct(Number(id));
     const prodcutsDetails:Product = data || {};
     
